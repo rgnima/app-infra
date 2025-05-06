@@ -19,9 +19,9 @@ jobs:
       ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
       ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
       ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-      RESOURCE_GROUP: ${{ secrets.RESOURCE_GROUP }}
-      STORAGE_ACCOUNT: ${{ secrets.STORAGE_ACCOUNT }}
-      CONTAINER_NAME: ${{ secrets.CONTAINER_NAME }}
+      RESOURCE_GROUP: ${{ vars.RESOURCE_GROUP }}
+      STORAGE_ACCOUNT: ${{ vars.STORAGE_ACCOUNT }}
+      CONTAINER_NAME: ${{ vars.CONTAINER_NAME }}
 
     steps:
   # Checkout the repository to the GitHub Actions runner
@@ -46,5 +46,5 @@ jobs:
     - name: Terraform Apply
       run: terraform apply -auto-approve 
      # Destroy the infrastructure
-    - name: Terraform Destroy AKS
-      run: terraform destroy -auto-approve
+    # - name: Terraform Destroy AKS
+    #   run: terraform destroy -auto-approve
